@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>あかつき ─ 将来のチップ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="loader" id="loader"><span id="lpct">0%</span></div>
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div class="glow" id="glow" aria-hidden="true"></div>
+<div class="curtain" id="curtain" aria-hidden="true"></div>
+
+<header class="nav">
+  <a href="#/" class="logo" data-route="home"><span class="logo-sun"></span>あかつき</a>
+  <nav>
+    <a href="#/1" data-route="1"><i>1</i></a>
+    <a href="#/2" data-route="2"><i>2</i></a>
+    <a href="#/3" data-route="3"><i>3</i></a>
+    <a href="#/4" data-route="4"><i>4</i></a>
+    <a href="#/faq" class="faq-link">FAQ</a>
+    <button id="snd" class="snd" aria-label="sound"><i></i><i></i><i></i><i></i></button>
+  </nav>
+</header>
+<div class="progress"><span id="bar"></span></div>
+
+<main>
+
+<!-- ===================== HOME ===================== -->
+<section class="page" id="p-home" data-page="home">
+  <div class="hero">
+    <div class="sunrise" aria-hidden="true"><span></span><span></span><span></span></div>
+    <p class="kicker rv" data-split>わたしたちの　チームの名前は</p>
+    <h1 class="mega" data-split>あかつき</h1>
+    <p class="kicker rv d2">です。</p>
+
+    <div class="chip-stage tilt" aria-hidden="true">
+      <svg class="chip" viewBox="0 0 300 300">
+        <defs>
+          <linearGradient id="gd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#9a9a9a"/><stop offset="1" stop-color="#5a5a5a"/></linearGradient>
+          <linearGradient id="gc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#5a5a5a"/></linearGradient>
+        </defs>
+        <g class="pins" stroke="url(#gd)" stroke-width="5" stroke-linecap="round">
+          <path d="M80 40v32M110 40v32M140 40v32M170 40v32M200 40v32M230 40v32"/>
+          <path d="M80 228v32M110 228v32M140 228v32M170 228v32M200 228v32M230 228v32" transform="translate(-10 0)"/>
+          <path d="M40 80h32M40 110h32M40 140h32M40 170h32M40 200h32"/>
+          <path d="M228 80h32M228 110h32M228 140h32M228 170h32M228 200h32"/>
+        </g>
+        <rect x="64" y="64" width="172" height="172" rx="22" fill="#0c0d14" stroke="url(#gd)" stroke-width="3"/>
+        <rect x="96" y="96" width="108" height="108" rx="12" fill="none" stroke="url(#gc)" stroke-width="2.5"/>
+        <g class="traces" fill="none" stroke="url(#gc)" stroke-width="2" stroke-linecap="round">
+          <path d="M110 96v-18M140 96V84M170 96v-12M190 96V80"/>
+          <path d="M96 120H82M96 150H86M96 178H80"/>
+          <path d="M204 118h16M204 150h12M204 182h18"/>
+          <path d="M120 204v18M150 204v14M180 204v20"/>
+          <path d="M118 130h34v22h30M130 176h48"/>
+        </g>
+        <circle class="core" cx="150" cy="150" r="9" fill="#ffffff"/>
+        <circle class="ring r1" cx="150" cy="150" r="9" fill="none" stroke="#ffffff" stroke-width="2"/>
+        <circle class="ring r2" cx="150" cy="150" r="9" fill="none" stroke="#ffffff" stroke-width="2"/>
+      </svg>
+    </div>
+
+    <div class="scrollcue" aria-hidden="true"><span></span></div>
+  </div>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="track"><span>将来のチップ</span><span>★</span><span>健康を守るチップ</span><span>★</span><span>将来のチップ</span><span>★</span><span>健康を守るチップ</span><span>★</span><span>将来のチップ</span><span>★</span><span>健康を守るチップ</span><span>★</span></div>
+  </div>
+
+  <div class="wrap statement">
+    <canvas class="gl gl-back" data-scene="chip"></canvas>
+    <p class="big rv">私たちが考えた　もの　は</p>
+    <h2 class="huge grad rv d1" data-split>「将来のチップ」</h2>
+    <p class="big rv d2">です。</p>
+    <p class="mid rv d3">からだの中にいれるチップです。</p>
+  </div>
+
+  <div class="wrap know">
+    <div class="know-q rv"><span class="dot-tag">?</span><h2 data-split>チップを知っていますか。</h2></div>
+    <div class="know-grid">
+      <div class="know-card rv tilt">
+        <span class="label">今は</span>
+        <p>ペットに、<b>GPS</b>として使われています。</p>
+        <canvas class="gl gl-card" data-scene="globe"></canvas>
+      </div>
+      <div class="know-arrow rv d1" aria-hidden="true"><svg viewBox="0 0 80 24"><path d="M2 12h70M60 3l12 9-12 9" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="know-card rv d2 tilt hot">
+        <span class="label">これを</span>
+        <p>人間に使うようになると<b>おもいます</b>。</p>
+        <div class="vid-frame"><video class="vid" data-src="https://videos.pexels.com/video-files/12896411/12896411-hd_720_1280_24fps.mp4" muted loop playsinline></video></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap start-cta rv">
+    <a href="#/1" class="cta"><span>1</span><em>どんな人に使ってもらいたいか</em><svg viewBox="0 0 40 16"><path d="M1 8h36M30 2l7 6-7 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+
+  <!-- FAQ -->
+  <section class="wrap faq" id="faq">
+    <h2 class="faq-title rv" data-split>FAQ</h2>
+    <div class="faq-list">
+      <details class="rv"><summary><i>Q</i>チップを知っていますか。</summary><p>今はペットに、GPSとして使われています。これを人間に使うようになるとおもいます。</p></details>
+      <details class="rv"><summary><i>Q</i>どんな人に使ってもらいたいですか。</summary><p>お金持ち、GPSがついているので子ども、お年寄り。コンピューターがついているので学校の先生、医者、警察や軍隊の人たち。会社員やお金に、よゆうのある人たちにつかってもらいたいです。</p></details>
+      <details class="rv"><summary><i>Q</i>どこに入れますか。</summary><p>体の中に入れて使います。耳の下に入れます。痛み止めをして注射でいれます。</p></details>
+      <details class="rv"><summary><i>Q</i>このチップで何ができますか。</summary><p>電車に乗るときのマナカの代わりになります。車をコントロールすることもできます。家の鍵、会社に入るときも使えます。パソコンをコントロールすることもできるようになります。</p></details>
+      <details class="rv"><summary><i>Q</i>病気になったら？</summary><p>病気になる前に、病気をよそくしたり、体の悪いところをすぐに見つけたりできます。自動でちりょうをして、病気を楽に・速く治すことができます。</p></details>
+      <details class="rv"><summary><i>Q</i>いつ、みんなが使いますか。</summary><p>２１００年には　みんな使っていると思います。</p></details>
+    </div>
+  </section>
+</section>
+
+<!-- ===================== PAGE 1 ===================== -->
+<section class="page" id="p-1" data-page="1">
+  <div class="wrap pagehead">
+    <span class="num rv">1</span>
+    <h2 class="title rv d1" data-split>どんな人に<br>使ってもらいたいか</h2>
+    <p class="mid rv d2">かんがえました。</p>
+  </div>
+
+  <div class="rail-wrap">
+    <div class="rail" id="rail">
+      <article class="vcard tilt"><video class="vid" data-src="https://videos.pexels.com/video-files/7579338/7579338-hd_720_1366_25fps.mp4" muted loop playsinline></video><div class="cap"><b>医者</b><small>コンピューターがついているので</small></div></article>
+      <article class="vcard tilt"><video class="vid" data-src="https://videos.pexels.com/video-files/35733042/15144903_720_1280_30fps.mp4" muted loop playsinline></video><div class="cap"><b>子ども</b><small>GPSがついているので</small></div></article>
+      <article class="vcard tilt"><video class="vid" data-src="https://videos.pexels.com/video-files/5897643/5897643-hd_720_1280_24fps.mp4" muted loop playsinline></video><div class="cap"><b>学校の先生</b><small>コンピューターがついているので</small></div></article>
+      <article class="vcard tilt"><video class="vid" data-src="https://videos.pexels.com/video-files/7713932/7713932-hd_720_1280_30fps.mp4" muted loop playsinline></video><div class="cap"><b>警察や軍隊の人たち</b><small>コンピューターがついているので</small></div></article>
+      <article class="vcard tilt"><video class="vid" data-src="https://videos.pexels.com/video-files/12896411/12896411-hd_720_1280_24fps.mp4" muted loop playsinline></video><div class="cap"><b>会社員</b><small>お金に、よゆうのある人たち</small></div></article>
+      <article class="vcard tilt"><canvas class="gl" data-scene="globe"></canvas><div class="cap"><b>子ども・お年寄り</b><small>GPSがついているので</small></div></article>
+      <article class="vcard tilt"><canvas class="gl" data-scene="grid"></canvas><div class="cap"><b>学校の先生・医者・警察や軍隊の人たち</b><small>コンピューターがついているので</small></div></article>
+    </div>
+    <p class="drag-hint" aria-hidden="true">◀ ▶</p>
+  </div>
+
+  <div class="wrap who">
+    <div class="who-col rv">
+      <h3><svg viewBox="0 0 24 24"><path d="M12 22s7-6 7-12a7 7 0 10-14 0c0 6 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.5" fill="currentColor"/></svg>GPSがついているので</h3>
+      <ul class="pills"><li>子ども</li><li>お年寄り</li></ul>
+    </div>
+    <div class="who-col rv d1">
+      <h3><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="2"/></svg>コンピューターがついているので</h3>
+      <ul class="pills"><li>学校の先生</li><li>医者</li><li>警察や軍隊の人たち</li></ul>
+    </div>
+    <div class="who-col wide rv d2">
+      <h3><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v10M9.5 9.5h4a1.8 1.8 0 010 3.6h-3a1.8 1.8 0 000 3.6h4.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></h3>
+      <ul class="pills"><li>お金持ち</li><li>会社員</li><li>お金に、よゆうのある人たち</li></ul>
+    </div>
+  </div>
+  <div class="wrap bigline rv"><p>つかってもらいたいです</p></div>
+</section>
+
+<!-- ===================== PAGE 2 ===================== -->
+<section class="page" id="p-2" data-page="2">
+  <div class="wrap pagehead">
+    <span class="num rv">2</span>
+    <h2 class="title rv d1" data-split>体の中に<br>入れて使います</h2>
+  </div>
+
+  <div class="wrap body-split">
+    <div class="head-fig rv">
+      <svg viewBox="0 0 300 380" class="head">
+        <defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#9a9a9a"/><stop offset="1" stop-color="#5a5a5a"/></linearGradient></defs>
+        <path class="outline" pathLength="1" d="M108 372 C112 320 118 296 100 268 C70 236 62 176 78 126 C92 76 140 46 190 54 C232 62 252 106 246 146 C244 162 258 184 262 194 C264 200 256 204 250 206 C252 216 250 224 246 230 C248 242 244 252 236 258 C228 276 200 288 184 294 C176 306 176 350 180 372" fill="none" stroke="url(#hg)" stroke-width="3" stroke-linecap="round"/>
+        <ellipse class="ear" cx="128" cy="192" rx="15" ry="26" fill="none" stroke="#f4efe9" stroke-opacity=".55" stroke-width="2.5"/>
+        <path class="scan" d="M50 240H230" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="4 6" opacity=".7"/>
+        <g class="inject">
+          <circle class="ripple a" cx="134" cy="236" r="6" fill="none" stroke="#ffffff" stroke-width="2"/>
+          <circle class="ripple b" cx="134" cy="236" r="6" fill="none" stroke="#ffffff" stroke-width="2"/>
+          <rect class="pill" x="127" y="231" width="14" height="10" rx="3" fill="#ffffff"/>
+        </g>
+        <g class="tag"><path d="M140 240L205 300" stroke="#ffffff" stroke-width="1.5"/><circle cx="205" cy="300" r="3" fill="#ffffff"/></g>
+      </svg>
+      <p class="fig-label">耳の下</p>
+    </div>
+
+    <ol class="steps">
+      <li class="rv"><span>01</span><div><b>痛み止め</b>をして</div></li>
+      <li class="rv d1"><span>02</span><div><b>注射</b>で いれます</div></li>
+      <li class="rv d2"><span>03</span><div><b>耳の下</b>に入れます</div></li>
+    </ol>
+  </div>
+
+  <div class="monitor">
+    <video class="vid bgvid" data-src="https://videos.pexels.com/video-files/15435985/15435985-hd_720_720_30fps.mp4" muted loop playsinline></video>
+    <canvas class="gl gl-mon" data-scene="ecg"></canvas>
+    <div class="monitor-shade"></div>
+    <div class="wrap monitor-in">
+      <p class="mid rv">体の じょうたいを</p>
+      <div class="ticker rv d1"><span class="count" data-to="24">0</span><em>時間</em></div>
+      <p class="big rv d2">ずっと チェックしてくれる</p>
+      <svg class="ecg" viewBox="0 0 800 120" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M0 70H180l16-6 14 6h40l10-8 12 8h20l14-62 22 108 18-46h40l14-8 14 8H520l16-6 14 6h40l10-8 12 8h20l14-62 22 108 18-46H800" fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="round"/></svg>
+      <p class="mid rv d3">とても <b class="grad">健康</b>にいいです。</p>
+    </div>
+  </div>
+
+  <div class="wrap evolve">
+    <p class="big rv">いままでのチップよりも、ずっと</p>
+    <h3 class="huge grad rv d1" data-split>進化</h3>
+    <p class="mid rv d2">わたしたちの けんこうを <b>守る</b> ことができます。</p>
+  </div>
+</section>
+
+<!-- ===================== PAGE 3 ===================== -->
+<section class="page" id="p-3" data-page="3">
+  <div class="wrap pagehead">
+    <span class="num rv">3</span>
+    <h2 class="title rv d1" data-split>このチップの<br>できること</h2>
+    <p class="mid rv d2">今のチップと<b class="grad">ちがって</b></p>
+  </div>
+
+  <div class="wrap bento">
+    <article class="tile t-train rv tilt"><video class="vid" data-src="https://videos.pexels.com/video-files/32635113/13916469_1280_720_25fps.mp4" muted loop playsinline></video><div class="cap"><span>電車に乗るとき</span><b>マナカの代わり</b></div></article>
+    <article class="tile t-car rv d1 tilt"><video class="vid" data-src="https://videos.pexels.com/video-files/32024439/13650082_1280_720_30fps.mp4" muted loop playsinline></video><div class="cap"><span>チップで</span><b>車をコントロール</b></div></article>
+    <article class="tile t-key rv d1 tilt"><video class="vid" data-src="https://videos.pexels.com/video-files/7986204/7986204-hd_720_1280_25fps.mp4" muted loop playsinline></video><div class="cap"><span>鍵</span><b>家の鍵</b></div></article>
+    <article class="tile t-work rv d2 tilt"><video class="vid" data-src="https://videos.pexels.com/video-files/12896411/12896411-hd_720_1280_24fps.mp4" muted loop playsinline></video><div class="cap"><span>入るときも</span><b>会社</b></div></article>
+    <article class="tile t-pc rv d2 tilt"><canvas class="gl" data-scene="grid"></canvas><div class="cap"><span>このチップで</span><b>パソコンをコントロール</b></div></article>
+  </div>
+
+  <div class="wrap predict">
+    <p class="big rv">病気になる前に、</p>
+    <div class="predict-row">
+      <div class="pred rv tilt"><svg viewBox="0 0 48 48"><path d="M4 28h10l5-14 8 24 6-16 3 6h8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><b>病気をよそくしたり</b></div>
+      <div class="pred rv d1 tilt"><svg viewBox="0 0 48 48"><circle cx="21" cy="21" r="12" fill="none" stroke="currentColor" stroke-width="3"/><path d="M30 30l12 12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><b>体の悪いところを<br>すぐに見つけたり</b></div>
+    </div>
+    <p class="mid rv">できます。</p>
+  </div>
+</section>
+
+<!-- ===================== PAGE 4 ===================== -->
+<section class="page" id="p-4" data-page="4">
+  <div class="wrap pagehead">
+    <span class="num rv">4</span>
+    <h2 class="title rv d1" data-split>さらに、<br>自動でちりょう</h2>
+  </div>
+
+  <div class="wrap heal">
+    <canvas class="gl gl-helix" data-scene="helix"></canvas>
+    <div class="heal-bg" aria-hidden="true"><video class="vid" data-src="https://videos.pexels.com/video-files/8970858/8970858-hd_1280_720_25fps.mp4" muted loop playsinline></video></div>
+    <p class="mid rv">病気を</p>
+    <div class="duo">
+      <h3 class="huge grad rv" data-split>楽に</h3>
+      <span class="dotsep rv d1">・</span>
+      <h3 class="huge grad2 rv d1" data-split>速く</h3>
+    </div>
+    <p class="mid rv d2">治すことができます。</p>
+  </div>
+
+  <div class="wrap together">
+    <p class="big rv">これがあれば、</p>
+    <h3 class="together-h rv d1" data-split>みんなが ずっと<br>けんこうに くらす</h3>
+    <p class="big rv d2">ことができると思います。</p>
+  </div>
+
+  <div class="wrap recap">
+    <p class="mid rv">いまあるチップより　もっと進化したチップです。</p>
+    <p class="huge-s grad rv d1">健康を守るチップです。</p>
+  </div>
+
+  <div class="finale">
+    <canvas class="gl gl-orb" data-scene="orb"></canvas>
+    <div class="finale-sun" aria-hidden="true"></div>
+    <div class="wrap finale-in">
+      <div class="year rv"><span id="year" data-to="2100">0</span></div>
+      <p class="big rv d1">２１００年には　みんな使っていると思います。</p>
+      <p class="mid rv d2">これで発表を終わります。</p>
+      <p class="sign rv d3">あかつき</p>
+      <a href="#/" class="again rv d3">↺</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="pager">
+  <a href="#/" id="prev" aria-label="prev">←</a>
+  <span id="pnum">あかつき</span>
+  <a href="#/1" id="next" aria-label="next">→</a>
+</footer>
+
+<script src="sfx.js"></script>
+<script src="app.js"></script>
+<script type="module" src="scenes.js"></script>
+</body>
+</html>
