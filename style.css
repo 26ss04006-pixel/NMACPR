@@ -288,3 +288,9 @@ video{filter:grayscale(1) contrast(1.2) brightness(.78)}
 .snd:not(.on){animation:flick 2.6s infinite}
 .gl-mon{opacity:.6}
 .monitor .ecg{display:none}
+
+/* enter gate (starts the music) */
+.loader{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:46px}
+.enter{all:unset;cursor:pointer;position:relative;font-family:var(--lat);font-size:1.15rem;letter-spacing:.6em;padding:14px 20px 14px 34px;color:#f0f0f0;opacity:0;transition:opacity 1.4s}
+.enter.show{opacity:1;animation:flick 4s infinite}
+.enter:hover{color:#fff;text-shadow:0 0 14px #fff}

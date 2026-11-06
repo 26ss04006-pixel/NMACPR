@@ -56,9 +56,10 @@ window.SFX = (() => {
 
   const api = {
     get on() { return on; },
-    toggle() {
+    toggle() { return api.set(!on); },
+    set(v) {
       if (!started) { init(); started = true; }
-      on = !on; ac.resume();
+      on = v; ac.resume();
       master.gain.cancelScheduledValues(ac.currentTime);
       master.gain.linearRampToValueAtTime(on ? .85 : 0, ac.currentTime + (on ? 2.5 : .6));
       if (on) api.ripple();

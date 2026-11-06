@@ -202,7 +202,23 @@
   const lt = t => {
     const p = Math.min((t - t0) / 1800, 1);
     lp.textContent = Math.round(p * 100) + '%';
-    if (p < 1) requestAnimationFrame(lt); else setTimeout(() => { lo.classList.add('gone'); hold = false; activate($('.page.active')); }, 350);
+    if (p < 1) { requestAnimationFrame(lt); return; }
+    // loaded: ask for one click (browsers only allow sound after a gesture), then start music + site
+    lp.textContent = '100%';
+    const btn = document.createElement('button');
+    btn.className = 'enter scribble'; btn.textContent = 'ENTER';
+    const sv = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    sv.setAttribute('class', 'scrib'); sv.setAttribute('viewBox', '0 0 200 100'); sv.setAttribute('preserveAspectRatio', 'none');
+    const pa = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    pa.setAttribute('d', paths[0]); pa.setAttribute('pathLength', '1'); sv.appendChild(pa); btn.appendChild(sv);
+    lo.appendChild(btn); setTimeout(() => btn.classList.add('show'), 50);
+    const go = () => {
+      const muted = (() => { try { return localStorage.getItem('akatsuki-muted') === '1'; } catch (e) { return false; } })();
+      if (!muted) $('#snd').classList.toggle('on', SFX.set(true));
+      lo.classList.add('gone'); hold = false; activate($('.page.active'));
+    };
+    btn.addEventListener('click', go);
+    addEventListener('keydown', function k(e) { if (e.key === 'Enter') { removeEventListener('keydown', k); go(); } });
   };
   requestAnimationFrame(lt);
 })();
@@ -210,7 +226,11 @@
 /* ---------- sound ---------- */
 (() => {
   const snd = document.getElementById('snd');
-  snd.addEventListener('click', e => { e.preventDefault(); snd.classList.toggle('on', SFX.toggle()); });
+  snd.addEventListener('click', e => {
+    e.preventDefault();
+    const v = SFX.set(!SFX.on); snd.classList.toggle('on', v);
+    try { localStorage.setItem('akatsuki-muted', v ? '0' : '1'); } catch (err) {}
+  });
   let last = null;
   document.addEventListener('pointerover', e => {
     const t = e.target.closest && e.target.closest('.scribble, .vcard, .tile, details');
